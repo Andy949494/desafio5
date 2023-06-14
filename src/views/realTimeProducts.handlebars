@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Products</title>
+</head>
+<body>
+<div>
+        <div>
+            <h2>Add product</h2>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" name="description">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Code</label>
+                <input type="text" class="form-control" id="code" name="code">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="price">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <input type="text" class="form-control" id="status" name="status">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thumbnails</label>
+                <input type="text" class="form-control" id="thumbnails" name="thumbnails">
+            </div>
+            <button onclick="sendNewProduct()" type="button" class="btn btn-primary">Submit</button>
+        </div>
+    <div>
+        <h2>Delete product</h2>
+        <div class="deleteProd">
+            <div class="mb-3">
+                <label class="form-label">ID</label>
+                <input type="number" class="form-control"
+                    id="id" name="id">
+            </div>
+
+            <button onclick="deleteProduct()" type="button" class="btn btn-primary">Delete</button>
+        </div>
+    </div>
+
+        <h1>Real time products</h1>
+
+    <table class="table">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Code</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Thumbnails</th>
+    </tr>
+  </thead>
+  <tbody class="tableBody"></tbody>
+    </table>    
+</div>
+</body>
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>
+
+
+
