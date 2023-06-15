@@ -1,0 +1,48 @@
+<div class="container p-4">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md4 mx-auto">
+            <div class="card">
+                <div class="card-body">              
+                    <table>
+                         {{#each carts}}
+                        <td colspan="9">Cart ID:  {{this._id}}</td>
+                        <tr>
+                            <th>Title</th>
+                            <th>Quantity</th>
+                            <th>Description</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Stock</th>
+                            <th>Category</th>
+                            <th>Thumbnails</th>
+                        </tr>
+                       
+                        
+                            
+                            <tr>
+                            {{#each products}}
+                            <td>{{this.product.title}}</td>
+                            <td>{{this.quantity}}</td>
+                            <td>{{this.product.description}}</td>
+                            <td>{{this.product.code}}</td>
+                            <td>{{this.product.price}}</td>
+                            <td>{{this.product.status}}</td>
+                            <td>{{this.product.stock}}</td>
+                            <td>{{this.product.category}}</td>
+                            <td>
+                                {{#each this.product.thumbnails}}
+                                <a href="{{this}}">{{this}}</a><br>
+                                {{/each}}
+                                
+                            </td>
+                            
+                        </tr>
+                        {{/each}}
+                        {{/each}} 
+                    </table>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
