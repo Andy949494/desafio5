@@ -1,0 +1,96 @@
+<style>
+    table{
+    width: auto;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th{
+    text-align: center;
+  }
+</style>
+<body>
+<h1>Bienvenido</h1>
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Edad</th>
+        </tr>
+        <tr>
+            <td>{{firstname}}</td>
+            <td>{{lastname}}</td>
+            <td>{{email}}</td>
+            <td>{{age}}</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="http://localhost:8080/logout">
+        <button>Cerrar sesión</button>
+    </a>
+</div><br><br>
+<div>
+    {{#if isValid}}
+<table>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Stock</th>
+                            <th>Category</th>
+                            <th>Thumbnails</th>
+                        </tr>
+                        {{#each docs}}
+                        <tr>
+                            <td>{{this._id}}</td>
+                            <td>{{this.title}}</td>
+                            <td>{{this.description}}</td>
+                            <td>{{this.code}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.status}}</td>
+                            <td>{{this.stock}}</td>
+                            <td>{{this.category}}</td>
+                            <td>
+                                {{#each this.thumbnails}}
+                                <a href="{{this}}">{{this}}</a><br>
+                                {{/each}}
+                            </td>
+                            <td><form action="/api/carts/647e56bcd18e3020732617db/product/{{this._id}}" method="POST">
+                                    <input type="submit" value="Agregar al carrito">
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}} 
+                    </table>
+</div>
+<div>
+    {{#if hasPrevPage}}
+        <a href={{this.prevLink}}><< Anterior</a>
+    {{/if}}
+    &nbsp;
+    {{this.page}}
+    &nbsp;
+     {{#if hasNextPage}}
+        <a href={{this.nextLink}}>Siguiente >></a>
+    {{/if}} 
+</div>
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+</body>
+
+
